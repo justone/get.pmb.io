@@ -2,12 +2,13 @@
 
 $path = $_SERVER['REQUEST_URI'];
 
+$prior_versions = glob("201*");
+rsort($prior_versions);
+$latest = array_shift($prior_versions);
+
 if ($path == '/latest') {
-    header("Location: /latest/bootstrap");
+    header("Location: /$latest/bootstrap");
 } else {
-    $prior_versions = glob("201*");
-    rsort($prior_versions);
-    $latest = array_shift($prior_versions);
 ?>
 <p>To get latest bootstrap:</p>
 <code>curl -L <?= $_SERVER['HTTP_HOST'] ?>/latest</code>
