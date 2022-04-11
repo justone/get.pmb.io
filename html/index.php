@@ -2,7 +2,7 @@
 
 $path = $_SERVER['REQUEST_URI'];
 
-$prior_versions = glob("201*");
+$prior_versions = glob("20*");
 rsort($prior_versions);
 $latest = array_shift($prior_versions);
 
